@@ -1,5 +1,5 @@
 <p align="center">
-  <img alt="kspacr Logo" src="https://kspacr.com/images/kspacr_slogan.png" width="600"/>
+  <img alt="kspacr Logo" src="https://kspacr.com/assets/images/kspacr_slogan.png" width="600"/>
 </p>
 
 [kspacr](https://kspacr.com) provides Kubernetes Namespaces and Virtual Clusters without the overhead of a full cluster. 
@@ -42,12 +42,42 @@ version from the [Releases](https://github.com/kspacr/kspacr-cli/releases) page.
 
 ### Initial configuration
 
-Generate an [API token](https://app.kspacr.com/user/api-tokens) and run `kspacr auth login` to add the token to your configuration file.
+Run `kspacr auth login` to log into your kspacr account and update the local kspacr configuration file.
 
 ```shell
 $ kspacr auth login
-Enter your kspacr API token ( https://app.kspacr.com/user/api-tokens ): █***********
-== Setting API token in /Users/johndoe/.kspacr/config.yaml
+Your email: john.doe@example.com
+Your Password: ********
 ```
 
 You can also use the environment variable `KSPACR_API_TOKEN` to set up your API token.
+
+## Namespaces
+
+### Get available Namespaces
+
+Get a list of all namespaces available for your currently active team:
+
+```shell
+kspacr ns list
+```
+
+### Connect to Namespace
+
+Fetch kubeconfig context to connect to Kubernetes cluster hosting your namespace. This will allow to select an available namespacesand merges the context into your kubeconfig:
+
+```shell
+kspacr ns connect
+```
+
+Fetch context without merging into your kubeconfig:
+
+```shell
+kspacr ns connect --no-merge
+```
+
+Fetch context for given namespace and merge with given kubeconfig:
+
+```shell
+kspacr ns connect -n my-name-space -k /home/johndoe/.kube/my-config
+```
