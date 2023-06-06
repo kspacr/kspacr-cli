@@ -45,4 +45,4 @@ if (!(";$Path;".ToLower() -like "*;$BinDir;*".ToLower())) {
 }
 
 Write-Output "kspacr CLI was installed successfully to $kspacrctlExe"
-Write-Output "Run 'kspacr --help' to get started"
+Write-Output "Run 'kspacr help' to get started"

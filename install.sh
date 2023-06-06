@@ -28,7 +28,7 @@ rm "$exe.tar.gz"
 
 echo "kspacr CLI was installed successfully to $exe"
 if command -v kspacr >/dev/null; then
-	echo "Run 'kspacr --help' to get started"
+	echo "Run 'kspacr help' to get started"
 else
 	case $SHELL in
 	/bin/zsh) shell_profile=".zshrc" ;;
@@ -36,5 +36,5 @@ else
 	esac
 	echo "Manually add the directory to your \$HOME/$shell_profile (or similar)"
 	echo "  export PATH=\"$bin_dir:\$PATH\""
-	echo "Run '$exe --help' to get started"
+	echo "Run '$exe help' to get started"
 fi
