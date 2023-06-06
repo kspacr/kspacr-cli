@@ -24,7 +24,7 @@ Install the latest version of the kspacr CLI on Windows ...
 using PowerShell (Windows):
 
 ```shell
-iwr https://deno.land/x/install/install.ps1 -useb | iex
+iwr https://kspacr.com/install.ps1 -useb | iex
 ```
 
 using [Scoop](https://scoop.sh/):

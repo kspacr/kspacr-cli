@@ -26,7 +26,7 @@ $Target = 'windows_x86_64'
 $DownloadUrl = if (!$Version) {
     "https://github.com/kspacr/kspacr-cli/releases/latest/download/kspacr-cli_${Target}.zip"
 } else {
-    "https://github.com/kspacr/kspacr-cli/releases/download/${Version}/kspacr-cli_-${Target}.zip"
+    "https://github.com/kspacr/kspacr-cli/releases/download/${Version}/kspacr-cli_${Target}.zip"
 }
 
 if (!(Test-Path $BinDir)) {
