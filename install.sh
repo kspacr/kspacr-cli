@@ -3,12 +3,13 @@
 
 set -e
 
-os=$(uname -s)
+os=$(uname -s | tr '[:upper:]' '[:lower:]')
 arch=$(uname -m)
 #version=${1:-latest}
 
-version=$(curl https://api.github.com/repos/kspacr/kspacr-cli/releases/latest | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/' | cut -c 2-)
-kspacr_url="https://github.com/kspacr/kspacr-cli/releases/download/kspacr-cli_${version}_${os}_${arch}.tar.gz"
+version_tag=$(curl https://api.github.com/repos/kspacr/kspacr-cli/releases/latest | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
+version=$(echo $version_tag | cut -c 2-)
+kspacr_url="https://github.com/kspacr/kspacr-cli/releases/download/${version_tag}/kspacr-cli_${version}_${os}_${arch}.tar.gz"
 
 install_dir="${kspacr_INSTALL:-$HOME/.kspacr}"
 bin_dir="$install_dir/bin"
@@ -17,6 +18,8 @@ exe="$bin_dir/kspacr"
 if [ ! -d "$bin_dir" ]; then
 	mkdir -p "$bin_dir"
 fi
+
+#echo "Downloading $kspacr_url to $exe"
 
 curl -q --fail --location --progress-bar --output "$exe.tar.gz" "$kspacr_url"
 tar xvf "$exe.tar.gz" -C "$bin_dir"
