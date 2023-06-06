@@ -2,7 +2,7 @@
   <img alt="kspacr Logo" src="https://kspacr.com/assets/images/kspacr_slogan.png" width="600"/>
 </p>
 
-[kspacr](https://kspacr.com) provides Kubernetes Namespaces and Virtual Clusters without the overhead of a full cluster. 
+[kspacr](https://kspacr.com) provides Kubernetes Namespaces and Virtual Clusters without the overhead of a full cluster.
 Our Zero-Ops Kubernetes platform enables and fast and secure Self-Service for Developers.
 
 Use the kspacr CLI (Command Line Interface) to manage your Serverless Kubernetes resources from your terminal.
@@ -19,10 +19,19 @@ brew install kspacr/tap/kspacr
 
 ### Windows
 
-Install the latest version of the kspacr CLI on Windows using [Scoop](https://scoop.sh/):
+Install the latest version of the kspacr CLI on Windows ...
+
+using PowerShell (Windows):
 
 ```shell
-scoop install kspacr
+iwr https://deno.land/x/install/install.ps1 -useb | iex
+```
+
+using [Scoop](https://scoop.sh/):
+
+```shell
+scoop bucket add kspacr https://github.com/kspacr/scoop-kspacr-cli.git
+scoop install kspacr/kspacr
 ```
 
 ### Install Script
@@ -35,8 +44,7 @@ curl -L https://kspacr.com/install.sh | sh
 
 ### Download from GitHub
 
-The CLI can be installed from pre-compiled binaries for macOS (darwin), Linux and Windows. You can download the appropriate 
-version from the [Releases](https://github.com/kspacr/kspacr-cli/releases) page.
+The CLI can be installed from pre-compiled binaries for macOS (darwin), Linux and Windows. You can download the appropriate version from the [Releases](https://github.com/kspacr/kspacr-cli/releases) page.
 
 ## Getting started
 
